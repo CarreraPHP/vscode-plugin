@@ -1,0 +1,62 @@
+{
+	"name": "scaffolding-screen",
+	"displayName": "scaffolding-screen",
+	"description": "scaffolding a basic ui screen",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.scaffoldscreen"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.scaffoldscreen",
+				"title": "Scaffold screen"
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "scaffold-screen",
+					"title": "Scaffolding Screen",
+					"icon": "tree-view-icon.svg"
+				}
+			]
+		},
+		"views": {
+			"scaffold-screen": [
+				{
+					"id": "scaffoldScreen",
+					"name": "Navigation",
+					"when": "isAngularWorkspace"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test",
+		"vscode:prepublish": "webpack --mode production",
+		"compile": "webpack --mode none",
+		"watch": "webpack --mode none --watch",
+		"test-compile": "tsc -p ./"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.32.0",
+		"ts-loader": "^5.3.3",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vscode": "^1.32.0",
+		"webpack": "^4.29.6",
+		"webpack-cli": "^3.3.0"
+	},
+	"dependencies": {}
+}
